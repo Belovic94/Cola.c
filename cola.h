@@ -2,6 +2,7 @@
 #define COLA_H
 
 #include <stdbool.h>
+#include <stdlib.h>
 
 
 /* ******************************************************************
