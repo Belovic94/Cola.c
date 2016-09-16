@@ -1,5 +1,4 @@
 #include "cola.h"
-#include <stdio.h>
 
 
 /*Defino la estructura nodo*/

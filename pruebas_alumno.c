@@ -1,6 +1,7 @@
 #include "cola.h"
 #include "pila.h"
 #include "testing.h"
+#include <stdio.h>
 #define CANT_APILAR 5
 
 void pruebas_no_cola(void){
@@ -48,26 +49,23 @@ void pruebas_con_varios_elementos(void){
   cola_destruir(cola_con_elementos, NULL);
   print_test("Cola con elementos destruida", true);
 }
-/*
-void llenar_pila(pila_t* pila){
-  int vector[CANT_APILAR] = malloc(CANT_APILAR * sizeof(int));
+
+void llenar_pila(pila_t* pila, int* vector){
 
   for(int i=0; i<CANT_APILAR; i++){
     vector[i] = i + 1;
     pila_apilar(pila, &vector[i]);
   }
-
 }
-*/
-void destruir_dato(void* dato){
-  double* dati;
-  dati = dato;
-  free(dati);
+
+void wrapper_pila_destruir(void* pila){
+  pila_destruir((pila_t*)pila);
 }
 
 void pruebas_con_elementos_distintos(void){
-//  pila_t* pila_prueba = pila_crear();
+  pila_t* pila_prueba = pila_crear();
   cola_t* cola = cola_crear();
+  int vector[CANT_APILAR];
   double* valordou  = malloc(sizeof(double));
   int *valorint = malloc(sizeof(int));
   char *valorcha = malloc(sizeof(char));
@@ -77,13 +75,18 @@ void pruebas_con_elementos_distintos(void){
   *valorint = 10;
   *valorlon = 1000000000;
   *valorcha = 'T';
-  //llenar_pila(pila_prueba);
-  //print_test("Encolar pila", cola_encolar(cola, &pila_prueba));
+
+  llenar_pila(pila_prueba, vector);
+  print_test("Encolar una pila de números enteros", cola_encolar(cola, pila_prueba));
+  cola_destruir(cola, wrapper_pila_destruir);
+  print_test("Destruir cola con pila encolada", true);
+  cola = cola_crear();
   print_test("Encolar valor double", cola_encolar(cola, valordou));
   print_test("Encolar valor int", cola_encolar(cola, valorint));
   print_test("Encolar valor char", cola_encolar(cola, valorcha));
   print_test("Encolar valor long", cola_encolar(cola, valorlon));
   cola_destruir(cola, free);
+  print_test("Cola destruida con varios elementos adentro", true);
 
 }
 
