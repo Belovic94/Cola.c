@@ -1,5 +1,5 @@
 CC = gcc
-C_FLAGS = -std=c99 -Wall -pedantic -Wconversion -Werror -Wno-sign-conversion
+C_FLAGS = -g -O2 -std=c99 -Wall -Wconversion -Wno-sign-conversion -Wbad-function-cast -Wshadow -Wpointer-arith -Wunreachable-code -Wformat=2 -Werror
 DEFAULT = TPCola
 OBJ_COLA = cola.o
 OBJ_PILA = pila.o

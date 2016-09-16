@@ -1,7 +1,11 @@
 #include "cola.h"
+#include <stdlib.h>
 
 
 /*Defino la estructura nodo*/
+struct nodo;
+typedef struct nodo nodo_t;
+
 struct nodo{
   void* dato;
   nodo_t* proximo;

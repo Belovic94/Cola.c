@@ -13,8 +13,7 @@
 
 struct cola;
 typedef struct cola cola_t;
-struct nodo;
-typedef struct nodo nodo_t;
+
 
 
 /* ******************************************************************
@@ -22,10 +21,10 @@ typedef struct nodo nodo_t;
  * *****************************************************************/
 
 //Post: devuelve un nodo con un valor y proximo igual a NULL.
-nodo_t* nodo_crear(void* valor);
+//nodo_t* nodo_crear(void* valor);
 
 //Pre: el nodo fue creado
-void nodo_destruir(nodo_t* nodo);
+//void nodo_destruir(nodo_t* nodo);
 
 // Crea una cola.
 // Post: devuelve una nueva cola vacía.
