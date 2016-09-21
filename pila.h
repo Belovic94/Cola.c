@@ -1,6 +1,6 @@
 #ifndef PILA_H
 #define PILA_H
-#define TAM_INICIAL_PILA 5
+
 #include <stdbool.h>
 #include <stdlib.h>
 
